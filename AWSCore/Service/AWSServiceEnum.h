@@ -141,6 +141,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceKinesis,
     /**
+     *  AWS Key Management Service (STS)
+     */
+    AWSServiceKMS,
+    /**
      *  AWS Lambda
      */
     AWSServiceLambda,
@@ -176,6 +180,7 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  AWS Security Token Service (STS)
      */
     AWSServiceSTS,
+
 };
 
 #endif
