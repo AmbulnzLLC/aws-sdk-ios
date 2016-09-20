@@ -189,7 +189,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark identity provider
 - (NSString *) identityProviderName {
-    return [NSString stringWithFormat:@"%@/%@", self.configuration.endpoint.hostName, self.userPoolConfiguration.poolId];
+    return [NSString stringWithFormat:@"%@/%@", self.client.configuration.endpoint.hostName, self.userPoolConfiguration.poolId];
 }
 
 - (AWSTask<NSString*>*) token {
@@ -357,6 +357,28 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData {
     if(nil != self){
         self.username = username;
         self.password = password;
+    }
+    return self;
+}
+@end
+
+
+@implementation AWSCognitoIdentityCustomAuthenticationInput
+-(instancetype) initWithChallengeParameters: (NSDictionary<NSString*,NSString*> *) challengeParameters {
+    self = [super init];
+    if(nil != self){
+        self.challengeParameters = challengeParameters;
+    }
+    return self;
+}
+@end
+
+
+@implementation AWSCognitoIdentityCustomChallengeDetails
+-(instancetype) initWithChallengeResponses:(NSDictionary<NSString *,NSString *> *)challengeResponses {
+    self = [super init];
+    if(nil != self){
+        self.challengeResponses = challengeResponses;
     }
     return self;
 }
