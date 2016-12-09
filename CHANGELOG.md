@@ -1,5 +1,78 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.4.15
+### New Features
+* **SDK Core**
+	* Introducing new AWS `CACentral1` - Canada (Central) region, endpoint `ca-central-1`. 
+    
+### Resolved Issues
+
+* **Amazon Pinpoint**
+    *  Fix bugs related to session timeout and campaign opens analytics.
+
+## 2.4.14
+### New Features
+* **Amazon Pinpoint**
+	* Amazon Pinpoint makes it easy to run targeted campaigns to improve user engagement. Pinpoint helps you understand your users behavior, define who to target, what messages to send, when to deliver them, and tracks the results of the campaigns.
+	
+
+## 2.4.13
+### New Features
+* **Amazon Polly**
+    *  Amazon Polly is a service that turns text into lifelike speech, making it easy to develop applications that use high-quality speech to increase engagement and accessibility. With Amazon Polly the developers can build speech-enabled apps that work in multiple geographies.
+* **Amazon Lex - Beta**
+    * Amazon Lex is a service for building conversational interactions into any application using voice and text. With Lex, the same conversational engine that powers Amazon Alexa is now available to any developer, enabling you to build sophisticated, natural language, conversational bots (chatbots) into your new and existing applications. Amazon Lex provides the deep functionality and flexibility of automatic speech recognition (ASR) for converting speech to text and natural language understanding (NLU) to understand the intent of the text. This allows you to build highly engaging user experiences with lifelike, conversational interactions.     
+    
+### Resolved Issues
+
+* **Amazon Mobile Analytics**
+    * Do not allow empty keys for attributes or metrics.
+
+
+## 2.4.12
+### New Features
+* **Amazon Mobile Analytics**
+	*  Added support for setting custom max keystorage size. [Github Issue 500](https://github.com/aws/aws-sdk-ios/issues/500)
+	
+### Resolved Issues
+
+* **Amazon API Gateway**
+    * Fixed a URL encoding bug. [Github Issue 505](https://github.com/aws/aws-sdk-ios/issues/505)
+* **Amazon S3 TransferUtility**
+    * Added fix for timeout based on configuration.    
+* **Amazon Cognito Identity**
+    * Fix issue causing SDK to call getOpenIdToken even with useEnhancedFlow set to YES
+    * Fix issue introduced in 2.4.0 causing credentials to be refreshed on every AWS service call even when they were still valid
+* **Amazon Cognito Sync**
+    * Fix issue causing synchronize() to fail with "Mismatch between session identity id and request identity id" on the first sync with Developer Authenticated Identities and in other scenarios
+
+## 2.4.11
+### New Features
+* **SDK Core**
+	* Introducing new AWS `USEast2` (Ohio) region, endpoint `us-east-2`. 
+    
+### Resolved Issues
+
+* **Amazon API Gateway**
+    * Fixed a URL encoding bug. [Github Issue 491](https://github.com/aws/aws-sdk-ios/issues/491)
+
+
+## 2.4.10
+### New Features
+* **Amazon API Gateway**
+	* Added support for a custom API invoker method with configurable HTTP parameters.
+* **Amazon Cognito Identity Provider**
+    * Added support for end user to set password and required attributes during initial authentication if they were created using AdminCreateUser. 
+    
+### Resolved Issues
+
+* **Amazon Cognito Identity Provider**
+    * Fixed a bug causing AWSCognitoIdentityUserPool.clearAll to not clear the keychain. [Github Issue #476](https://github.com/aws/aws-sdk-ios/issues/476)
+
+* **Amazon S3**
+    * Fixed a bug which disabled creating an empty folder. [Github Issue #480](https://github.com/aws/aws-sdk-ios/issues/480)
+    * Fixed a bug which did not set error object when bucket name is empty in request. [Github Issue #469](https://github.com/aws/aws-sdk-ios/issues/469)
+
 ## 2.4.9
 ### New Features
 * **All Services**
