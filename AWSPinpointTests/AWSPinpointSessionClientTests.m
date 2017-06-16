@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -44,7 +44,6 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 }
 
 - (void) clearSession {
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:AWSPinpointSessionKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     XCTAssertNil([[NSUserDefaults standardUserDefaults] dataForKey:AWSPinpointSessionKey]);

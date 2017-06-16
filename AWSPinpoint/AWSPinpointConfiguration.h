@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -68,6 +68,16 @@ typedef void(^AWSInitializationCompletionBlock)(AWSPinpoint * _Nonnull pinpoint)
  @returns YES/NO indicating if event collection is enabled
  */
 @property (nonatomic, assign) BOOL enableAutoSessionRecording;
+
+/**
+ Optional block that indicates whether or not targeting client should set application level OptOut.
+ Use this block to configure whether or not client should receive push notifications at an application level.
+ If system level notifications for this application are disabled, the result of this block will be ignored.
+ Defaults to NULL.
+
+ @returns YES/NO indicating if application level OptOut is set
+ */
+@property (nonatomic, copy) BOOL (^isApplicationLevelOptOut)(void);
 
 /**
  A service configuration object to be used for Pinpoint Analytics.

@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2016 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -247,7 +247,7 @@ static NSString *const AWSCognitoUserPoolAppClientSecret = @"CognitoUserPoolAppC
         return nil;
 
     const char *cKey  = [self.userPoolConfiguration.clientSecret cStringUsingEncoding:NSASCIIStringEncoding];
-    const char *cData = [[userName stringByAppendingString:self.userPoolConfiguration.clientId] cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cData = [[userName stringByAppendingString:self.userPoolConfiguration.clientId] cStringUsingEncoding:NSUTF8StringEncoding];
 
     unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
 

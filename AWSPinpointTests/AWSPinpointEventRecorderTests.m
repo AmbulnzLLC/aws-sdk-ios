@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -59,7 +59,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 
 - (void)setUp {
     [super setUp];
-    [[AWSLogger defaultLogger] setLogLevel:AWSLogLevelVerbose];
 
     [AWSTestUtility setupCognitoCredentialsProvider];
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
@@ -177,13 +176,11 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
     
     [[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -225,13 +222,11 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -281,13 +276,11 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
 
@@ -304,7 +297,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -353,13 +345,11 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event2] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -372,7 +362,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
@@ -442,7 +431,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -455,7 +443,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertNotNil(task.error);
         return nil;
@@ -516,7 +503,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -529,7 +515,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertNotNil(task.error);
         return nil;
@@ -588,7 +573,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -601,7 +585,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertNotNil(task.error);
         return nil;
@@ -660,7 +643,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -673,7 +655,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertNotNil(task.error);
         return nil;
@@ -733,7 +714,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     
     
     [[[self.pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
@@ -746,7 +726,6 @@ NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
     }] waitUntilFinished];
     
     [[[self.pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNil(task.exception);
         XCTAssertNil(task.result);
         XCTAssertNotNil(task.error);
         return nil;
